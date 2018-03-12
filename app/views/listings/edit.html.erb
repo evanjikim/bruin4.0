@@ -1,0 +1,6 @@
+<h1>Editing Listing</h1>
+
+<%= render 'form', listing: @listing %>
+
+<%= button_to 'Show', @listing, :method => "get", class: "btn btn--outline-primary btn-xs" %>
+<%= button_to 'Back', listings_path, :method => "get", class: "btn btn-outline-primary btn-xs" %>

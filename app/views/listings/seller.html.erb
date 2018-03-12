@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Posts</h1>
+
+<table class ="table">
+  <thead>
+    <tr>
+      <th class = "center">Course</th>
+      <th class = "center">Book</th>
+      <th class = "center">Price</th>
+      <th class = "center">Sold by </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td class = "center"><%= listing.course %></td>
+        <td class = "center"><%= listing.book %></td>
+        <td class = "center"><%= number_to_currency(listing.price) %></td>
+        <td class = "center"><%= "#{listing.user.name}"%></td>
+        <td><%= button_to 'View', listing, :method => "get", class: "btn btn-primary btn-xs"%></td>
+        <% if (user_signed_in?) && (current_user == listing.user) %>
+          <td><%= button_to 'Edit', edit_listing_path(listing), method: :get, class: "btn btn-primary btn-xs" %></td>
+          <td><%= button_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-primary btn-xs" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'New Post', new_listing_path, :method => "get", class: "btn btn-primary" %>

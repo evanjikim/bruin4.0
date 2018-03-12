@@ -1,0 +1,26 @@
+
+
+<p>
+  <strong>Course:</strong>
+  <%= @listing.course %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @listing.book %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@listing.price) %>
+</p>
+
+<p>
+  Sold by <%= mail_to @listing.user.email, "#{@listing.user.name}" %>
+</p>
+
+<% if current_user == @listing.user %>
+<%= button_to 'Edit', edit_listing_path(@listing), :method => "get", class: "btn btn-primary btn-xs" %>
+<% end %>
+
+<%= button_to 'Back', listings_path, :method => "get", class: "btn btn-primary btn-xs" %>
