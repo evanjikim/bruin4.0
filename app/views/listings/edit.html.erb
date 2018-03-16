@@ -1,6 +1,11 @@
-<h1>Editing Listing</h1>
+<h1>Update Post</h1>
 
 <%= render 'form', listing: @listing %>
-
-<%= button_to 'Show', @listing, :method => "get", class: "btn btn--outline-primary btn-xs" %>
-<%= button_to 'Back', listings_path, :method => "get", class: "btn btn-outline-primary btn-xs" %>
+<table>
+  <tbody>
+    <tr>
+<td><%= button_to 'Show', @listing, :method => "get", class: "btn btn-primary btn-xs" %></td>
+<td><%= button_to 'Back', listings_path, :method => "get", class: "btn btn-primary btn-xs" %></td>
+</tr>
+</tbody>
+</table>

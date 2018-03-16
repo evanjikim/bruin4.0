@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>Book:</strong>
+  <strong>TextBook:</strong>
   <%= @listing.book %>
 </p>
 
@@ -19,8 +19,13 @@
   Sold by <%= mail_to @listing.user.email, "#{@listing.user.name}" %>
 </p>
 
+<table>
+  <tbody>
+    <tr>
 <% if current_user == @listing.user %>
-<%= button_to 'Edit', edit_listing_path(@listing), :method => "get", class: "btn btn-primary btn-xs" %>
+<td><%= button_to 'Edit', edit_listing_path(@listing), :method => "get", class: "btn btn-primary btn-xs" %></td>
 <% end %>
-
-<%= button_to 'Back', listings_path, :method => "get", class: "btn btn-primary btn-xs" %>
+<td><%= button_to 'Back', listings_path, :method => "get", class: "btn btn-primary btn-xs" %></td>
+</tr>
+</tbody>
+</table>

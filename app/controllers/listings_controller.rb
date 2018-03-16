@@ -3,12 +3,13 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy,:seller]
   before_action :check_user, only: [:edit, :update, :destroy]
   def seller
-    @listings = Listing.where(user: current_user)
+    @listings = Listing.where(user: current_user).order("updated_at DESC")
   end
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.order("updated_at DESC")
+
   end
 
   # GET /listings/1
